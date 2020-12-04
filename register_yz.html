@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./public/css/register.css">
+    <link rel="stylesheet" href="./public/css/bootstrap.min.css">
+    <script src="./public/js/jquery-3.4.1.min.js"></script>
+    <script src="./public/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div class="wrapper">
+        <img src="./public/img/milogo.png" alt="">
+        <h3 class="title">注册小米帐号</h3>
+
+        <div class="form">
+            <h5 class="font-weight m-0" id="title">我们已经发送一条验证短信至</h5>
+            <span class="font-normal">请输入手机中的验证码</span>
+            <div class="again_msg">
+                <input type="text" id="txt_yzm">
+                <button id="resend">重新发送<span id="time"></span></button>
+            </div>
+            <p><a href="#">收不到验证码？</a></p>
+            <button class="next">下一步</button>
+            <a href="./register.html" class="goBack">返回</a>
+        </div>
+    </div>
+    <div class="footer">
+        <ul>
+            <li><a href="#">简体</a></li>
+            <li>|</li>
+            <li><a href="#">繁体</a></li>
+            <li>|</li>
+            <li><a href="#">English</a></li>
+            <li>|</li>
+            <li><a href="#">常见问题</a></li>
+        </ul>
+    </div>
+    <p class="text-center" style="color: #9d9d9d;">
+        小米公司版权所有-京ICP备10046444-京公网<i class="police"></i>安备11010802020134号-京ICP证110507号
+    </p>
+
+    <script>
+        var isWait = false;
+        var yzm = Math.floor(Math.random() * 9000 + 1000);
+        getParams();
+        $('#title').html(
+            `我们已经发送一条验证短信至<span class="orange">${location.query['code']} ${location.query['phone']}</span>`);
+        setTimeout(() => {
+            alert(`验证码为${yzm}`)
+        }, 300);
+        $('#resend').click(function () {
+            if (!isWait) {
+                $('#resend').attr('disabled', 'disabled');
+                isWait = true;
+                let time = 3;
+                $('#time').text(`(${time})`);
+                yzm = Math.floor(Math.random() * 9000 + 1000);
+                alert(`验证码为${yzm}`);
+                let js = setInterval(() => {
+                    time--;
+                    $('#time').text(`(${time})`);
+                    if (time <= 0) {
+                        isWait = false;
+                        $('#resend').removeAttr('disabled');
+                        $('#time').text('');
+                        clearInterval(js);
+                    }
+                }, 1000);
+            }
+        });
+        $('.next').click(function () {
+            if ($('#txt_yzm').val().trim() == yzm) location.href = './register_pwd.html?phone=' + location
+                .query['phone'];
+            else alert('验证码错误');
+        })
+
+        function getParams() {
+            let params = {};
+            let arr = location.search.slice(1).split('&');
+            for (let i of arr) {
+                params[i.split('=')[0]] = i.split('=')[1];
+            }
+            location['query'] = params;
+        }
+    </script>
+</body>
+
+</html>

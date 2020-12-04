@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./public/css/register.css">
+    <link rel="stylesheet" href="./public/css/bootstrap.min.css">
+    <script src="./public/js/jquery-3.4.1.min.js"></script>
+    <script src="./public/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div class="wrapper">
+        <img src="./public/img/milogo.png" alt="">
+        <h3 class="title">注册小米帐号</h3>
+
+        <div class="form">
+            <p class="font-big m-0 gray" id="title">您注册的手机号为</p>
+            <p class="font-big gray">请设置你的密码</p>
+            <input type="text" id="pwd" placeholder="请输入密码">
+            <input type="text" id="surePwd" placeholder="请输入确认密码">
+            <span class="font-normal gray">密码长度8~16位，数字、字母、字符、至少包含两种</span>
+            <button class="next">提交</button>
+        </div>
+    </div>
+    <div class="footer">
+        <ul>
+            <li><a href="#">简体</a></li>
+            <li>|</li>
+            <li><a href="#">繁体</a></li>
+            <li>|</li>
+            <li><a href="#">English</a></li>
+            <li>|</li>
+            <li><a href="#">常见问题</a></li>
+        </ul>
+    </div>
+    <p class="text-center" style="color: #9d9d9d;">
+        小米公司版权所有-京ICP备10046444-京公网<i class="police"></i>安备11010802020134号-京ICP证110507号
+    </p>
+
+    <script>
+        getParams();
+        $('#title').text(`您注册的手机号为${location.query['phone']}`);
+        $('.next').click(function () {
+            let pwd = $('#pwd').val().trim();
+            let surePwd = $('#surePwd').val().trim();
+            if (/^(?!^bai[a-z]*$)(?!^[A-Z]*$)(?!^[0-9]*$)(?!^[_\W]*$)^[a-zA-Z0-9].{8,16}$/.test(pwd)) {
+                if (pwd == "") {
+                    alert('密码不能为空');
+                    return;
+                }
+                if (pwd == surePwd) {
+                    location.href = './register_success.html';
+                } else alert('两次密码不相同');
+            } else alert('密码不符合规范');
+        });
+
+        function getParams() {
+            let params = {};
+            let arr = location.search.slice(1).split('&');
+            for (let i of arr) {
+                params[i.split('=')[0]] = i.split('=')[1];
+            }
+            location['query'] = params;
+        }
+    </script>
+</body>
+
+</html>

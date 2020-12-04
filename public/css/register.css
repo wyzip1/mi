@@ -1,0 +1,264 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f9f9f9 !important;
+}
+
+/* 手机注册页 */
+.wrapper {
+    margin: 120px auto 0;
+    background: #fff;
+    width: 800px;
+    height: 550px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 20px;
+}
+
+.title {
+    margin: 25px 0;
+    font-size: 30px;
+    font-weight: normal;
+}
+
+.font-normal {
+    font-size: 14px;
+    font-weight: normal;
+    margin-top: 8px;
+}
+
+.form {
+    width: 350px;
+    text-indent: 1px;
+    min-height: 270px;
+    position: relative;
+}
+
+.area,
+.phone {
+    width: 100%;
+    height: 40px;
+    border: 1px solid #e8e8e8;
+    display: flex;
+    position: relative;
+}
+
+.area_name {
+    width: 310px;
+    border-right: 1px solid #e8e8e8;
+    height: 100%;
+    line-height: 40px;
+    padding-left: 10px;
+    cursor: pointer;
+}
+
+.area_select {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.choose_area {
+    width: 100%;
+    position: absolute;
+    top: 42px;
+    left: 0;
+    min-height: 100px;
+    max-height: 250px;
+    background-color: #fff;
+    box-shadow: 3px 3px 8px #dadada;
+    z-index: 999;
+    display: none;
+    overflow-y: auto;
+}
+
+.choose_area ul li {
+    list-style: none;
+    width: 100%;
+    height: 35px;
+    padding-left: 10px;
+    line-height: 35px;
+    cursor: pointer;
+}
+
+.choose_area ul li:hover {
+    background: #d7d7d7;
+}
+
+.phone .area_select {
+    width: 80px;
+    border-right: 1px solid #e8e8e8;
+}
+
+.phone input {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    outline: none;
+    padding: 0 15px;
+}
+
+.dropDown {
+    background-image: url(../img/icon_user.png);
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    display: block;
+    width: 16px;
+    height: 16px;
+}
+
+.next,
+#reg_btn {
+    display: block;
+    width: 100%;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    border: 0;
+    background: #ff6700;
+    color: #fff;
+    font-size: 15px;
+    margin: 20px 0 80px 0;
+    outline: none;
+}
+
+.next:hover,
+#reg_btn:hover {
+    background: #ff936a;
+    text-decoration: none;
+    color: #fff;
+}
+
+.next:focus,
+.again_msg button:focus,
+#reg_btn:focus {
+    outline: none;
+}
+
+.footer {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+.footer ul {
+    list-style: none;
+    display: flex;
+}
+
+.footer ul a {
+    text-decoration: none;
+    color: #333;
+    padding: 0 15px;
+    font-size: 14px;
+}
+
+.police {
+    background-image: url(../img/ghs.png);
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+}
+
+/* 注册验证页 */
+.font-weight {
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.orange {
+    color: #ff6700;
+}
+
+.again_msg {
+    display: flex;
+    width: 100%;
+    height: 50px;
+    line-height: 40px;
+    /* border: 1px solid #e8e8e8; */
+    margin: 20px 0;
+}
+
+.again_msg input[type=text] {
+    width: 240px;
+    border: 0;
+    outline: none;
+    padding-left: 10px;
+}
+
+.again_msg button {
+    height: 100%;
+    width: 110px;
+    border: 0;
+    font-size: 15px;
+    outline: none;
+}
+
+.next {
+    margin: 10px 0;
+}
+
+.goBack {
+    display: block;
+    text-align: center;
+    line-height: 40px;
+    width: 100%;
+    height: 40px;
+    border: 0;
+    outline: none;
+    background: #e6e6e6;
+    color: #333;
+}
+
+.goBack:hover {
+    background: #c5c5c5;
+    text-decoration: none;
+    color: #333;
+}
+
+.goBack:focus {
+    outline: none;
+}
+
+/* 设置密码页 */
+.font-big {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.gray {
+    color: #797979;
+}
+
+.form input[type=text] {
+    width: 100%;
+    height: 50px;
+    border: 1px solid #e8e8e8;
+    outline: none;
+    margin-bottom: 10px;
+    padding-left: 10px;
+}
+
+/* 成功页 */
+.success {
+    line-height: 200px;
+}
+
+.success_txt {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+}
+
+.loginBtn {
+    position: absolute;
+    bottom: 0px;
+}
